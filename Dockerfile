@@ -21,8 +21,8 @@ RUN set -x\
     && source "$HOME/.cargo/env"\
     && git clone https://github.com/zerotier/ZeroTierOne.git\
     && cd ZeroTierOne\
-    && git checkout ${TAG}\
-    && echo "切换到tag:${TAG}"\
+    && git checkout 1.16.2\
+    && echo "切换到tag:1.16.2"\
     && make ZT_SYMLINK=1 \
     && make -j\
     && make install\
