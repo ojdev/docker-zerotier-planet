@@ -2,7 +2,7 @@ FROM alpine:3.14 as builder
 
 ENV TZ=Asia/Shanghai
 ARG TAG=actions
-ENV TAG=1.16.2
+ENV TAG=${TAG}
 
 WORKDIR /app
 ADD ./patch/entrypoint.sh /app/entrypoint.sh
@@ -21,8 +21,8 @@ RUN set -x\
     && source "$HOME/.cargo/env"\
     && git clone https://github.com/zerotier/ZeroTierOne.git\
     && cd ZeroTierOne\
-    && git checkout 1.16.2\
-    && echo "切换到tag:1.16.2"\
+    && git checkout ${TAG}\
+    && echo "切换到tag:${TAG}"\
     && make ZT_SYMLINK=1 \
     && make -j\
     && make install\
@@ -40,7 +40,9 @@ RUN set -x\
     && mv mkworld /var/lib/zerotier-one\
     && echo "mkworld build success!"
 
-
+RUN set -x \
+    && curl -s https://install.zerotier.com | bash \
+    && echo "zerotier installed success!"
 
 #make ztncui 
 RUN set -x \
