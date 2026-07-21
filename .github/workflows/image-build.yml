@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get latest Tailscale tag
+      - name: Get latest ZeroTierOne tag
         id: get_tag
         run: |
           LATEST_TAG=$(curl -s https://api.github.com/repos/zerotier/ZeroTierOne/tags | jq -r '.[0].name')
