@@ -40,9 +40,7 @@ RUN set -x\
     && mv mkworld /var/lib/zerotier-one\
     && echo "mkworld build success!"
 
-RUN set -x \
-    && curl -s https://install.zerotier.com | bash \
-    && echo "zerotier installed success!"
+
 
 #make ztncui 
 RUN set -x \
