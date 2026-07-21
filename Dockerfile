@@ -2,7 +2,7 @@ FROM alpine:3.14 as builder
 
 ENV TZ=Asia/Shanghai
 ARG TAG=actions
-ENV TAG=${LATEST_TAG}
+ENV TAG=1.16.2
 
 WORKDIR /app
 ADD ./patch/entrypoint.sh /app/entrypoint.sh
